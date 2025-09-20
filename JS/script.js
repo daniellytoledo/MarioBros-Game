@@ -1,6 +1,6 @@
 const mario = document.querySelector('.mario');
 const pipe = document.querySelector('.pipe');
-const gameBoard = document.querySelector('.game-board');
+const gameOverModal = document.querySelector('.game-over-modal');
 
 const jump = () => {
     if (!mario.classList.contains('jump')) {
@@ -10,6 +10,14 @@ const jump = () => {
             mario.classList.remove('jump');
         }, 500)
     }
+}
+
+const showGameOverModal = () => {
+    gameOverModal.style.display = 'flex';
+}
+
+const restartGame = () => {
+    location.reload();
 }
 
 const loop = setInterval(() => {
@@ -32,6 +40,9 @@ const loop = setInterval(() => {
         mario.style.width = '80px';
         mario.style.marginLeft = '50px';
 
+        // shows modal with delay
+        setTimeout(showGameOverModal, 300);
+
         // loop
         clearInterval(loop);
         console.log('Game Over!');
@@ -39,3 +50,10 @@ const loop = setInterval(() => {
 }, 10)
 
 document.addEventListener('keydown', jump);
+
+// close modal ESC
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && gameOverModal.style.display === 'flex') {
+        restartGame();
+    }
+});
