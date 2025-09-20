@@ -1,5 +1,6 @@
 const mario = document.querySelector('.mario');
 const pipe = document.querySelector('.pipe');
+const gameBoard = document.querySelector('.game-board');
 
 const jump = () => {
     if (!mario.classList.contains('jump')) {
