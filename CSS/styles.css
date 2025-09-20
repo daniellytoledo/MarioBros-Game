@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.game-board {
+    width: 80%;
+    height: 500px;
+    border: 1px solid #333;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.pipe {
+    position: absolute;
+    bottom: 0;
+    width: 80px;
+    right: -80px;
+    animation: pipe-animation 2s infinite linear;
+}
+
+.mario {
+    width: 150px;
+    position: absolute;
+    bottom: 0;
+}
+
+.jump {
+    animation: jump 500ms ease-out;
+}
+
+/* keyframe to put moviment, setting where is gonna start which is right 0 position and end at right 100% outside the game board */
+@keyframes pipe-animation { 
+    from {
+        right: -80px;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+/* keyframe to set the jumps... starting with 0% instead of using positions like the pipe-animation bc then we can set the position inside the percentage. if mario is in a position of 0% then his bottom will be 0 as well, 50% mario will be at the top, that's the jump, and 100% is the end of the animation which is bottom 0 again. the setting of 40% and 60% in between is just to create a delay during the jump with mario in the air */
+@keyframes jump {
+    0% {
+        bottom: 0;
+    }
+
+    40% {
+        bottom: 180px;
+    }
+
+    50% {
+        bottom: 180px;
+    }
+
+    60% {
+        bottom: 180px;
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
