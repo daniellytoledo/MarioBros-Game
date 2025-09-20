@@ -5,12 +5,13 @@
 }
 
 .game-board {
-    width: 80%;
+    width: 100%;
     height: 500px;
-    border: 1px solid #333;
-    margin: auto;
+    border-bottom: 15px solid #257c1a;
+    margin: 0 auto;
     position: relative;
     overflow: hidden;
+    background: linear-gradient(#b7e8fc, #E0F6FF);
 }
 
 .pipe {
@@ -18,7 +19,7 @@
     bottom: 0;
     width: 80px;
     right: -80px;
-    animation: pipe-animation 2s infinite linear;
+    animation: pipe-animation 1.5s infinite linear;
 }
 
 .mario {
@@ -29,6 +30,12 @@
 
 .jump {
     animation: jump 500ms ease-out;
+}
+
+.clouds {
+    position: absolute;
+    width: 550px;
+    animation: clouds-animation 20s infinite linear;
 }
 
 /* keyframe to put moviment, setting where is gonna start which is right 0 position and end at right 100% outside the game board */
@@ -62,5 +69,16 @@
 
     100% {
         bottom: 0;
+    }
+}
+
+/* keyframe for the clouds */
+@keyframes clouds-animation {
+    from {
+        right: -550px;
+    }
+
+    to {
+        right: 100%;
     }
 }

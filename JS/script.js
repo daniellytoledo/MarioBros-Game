@@ -28,7 +28,7 @@ const loop = setInterval(() => {
 
         // Mario game over
         mario.src = 'IMG/game-over.png';
-        mario.style.width = '75px';
+        mario.style.width = '80px';
         mario.style.marginLeft = '50px';
 
         // loop
